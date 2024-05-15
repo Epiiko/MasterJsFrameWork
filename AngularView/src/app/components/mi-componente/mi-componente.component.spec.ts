@@ -1,0 +1,24 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { MiComponenteComponent } from './mi-componente.component';
+import { HomeComponent } from '../home/home.component';
+
+describe('MiComponenteComponent', () => {
+  let component: MiComponenteComponent;
+  let fixture: ComponentFixture<MiComponenteComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      imports: [MiComponenteComponent]
+    })
+    .compileComponents();
+    
+    fixture = TestBed.createComponent(MiComponenteComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});
