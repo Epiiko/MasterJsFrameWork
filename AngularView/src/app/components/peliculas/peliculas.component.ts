@@ -1,13 +1,14 @@
-import { CommonModule, NgIf } from '@angular/common';
+import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { Pelicula }  from '../../models/pelicula';
 import { SliderComponent } from '../slider/slider.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { PeliculaComponent } from '../pelicula/pelicula.component';
 
 @Component({
   selector: 'app-peliculas',
   standalone: true,
-  imports: [CommonModule, SliderComponent, SidebarComponent],
+  imports: [CommonModule, SliderComponent, SidebarComponent, PeliculaComponent, NgFor],
   templateUrl: './peliculas.component.html',
   styleUrl: './peliculas.component.css'
 })

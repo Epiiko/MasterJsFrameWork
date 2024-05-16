@@ -1,4 +1,4 @@
-<app-slider [nombre]="'Peliculas'"></app-slider>
+<app-slider [nombre]="'Peliculas'" [size]="'small'"></app-slider>
 <div class="center">
   <section id="content">
     <h1>{{ titulo }}</h1>
@@ -7,28 +7,9 @@
     <hr />
     <div id="articles" *ngIf="peliculas">
       <!-- listado articulos -->
-      <article
-        class="article-item"
-        id="article-template"
-        *ngFor="let pelicula of peliculas"
-      >
-        <div class="img-wrap">
-          <img src="{{ pelicula.image }}" alt="Paisaje" />
-        </div>
-        <h2>{{ pelicula.title }}</h2>
-        <span class="date">Hace 5 min</span>
-        <span
-          class="year"
-          [ngClass]="{
-            'year-green': pelicula.year > 2018,
-            'year-red': pelicula.year <= 2018
-          }"
-        >
-          {{ pelicula.year }}</span
-        >
-        <a href="">Leer más</a>
-        <div class="clearfix"></div>
-      </article>
+      <div *ngFor="let pelicula of peliculas; let i = index">
+        <app-pelicula [pelicula]="pelicula"></app-pelicula>
+      </div>
     </div>
 </section>
   <app-sidebar></app-sidebar>

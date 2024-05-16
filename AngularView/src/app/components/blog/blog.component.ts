@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SliderComponent } from '../slider/slider.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-blog',
