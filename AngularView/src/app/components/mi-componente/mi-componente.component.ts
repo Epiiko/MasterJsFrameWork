@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PeliculasComponent } from '../peliculas/peliculas.component';
+import { PeliculasComponent } from '../peliculas/PeliculasComponent';
 import { CommonModule, NgIf } from '@angular/common';
 import { HomeComponent } from '../home/home.component';
 

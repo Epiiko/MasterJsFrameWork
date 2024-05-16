@@ -1,5 +1,5 @@
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output, output} from '@angular/core';
 import { Pelicula } from '../../models/pelicula';
 
 @Component({
@@ -11,4 +11,11 @@ import { Pelicula } from '../../models/pelicula';
 })
 export class PeliculaComponent {
   @Input() pelicula!:Pelicula;
+  @Output() marcarFavorita = new EventEmitter();
+
+  seleccionar(pelicula: Pelicula){
+    this.marcarFavorita.emit({
+      pelicula: pelicula
+    })
+  }
 }

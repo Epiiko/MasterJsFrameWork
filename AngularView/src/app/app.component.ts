@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MiComponenteComponent } from './components/mi-componente/mi-componente.component';
-import { PeliculasComponent } from './components/peliculas/peliculas.component';
+import { PeliculasComponent } from './components/peliculas/PeliculasComponent';
 import { PruebasComponent } from './components/pruebas/pruebas.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SliderComponent } from './components/slider/slider.component';
