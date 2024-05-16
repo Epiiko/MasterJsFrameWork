@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { SliderComponent } from '../slider/slider.component';
+import { SidebarComponent } from '../sidebar/sidebar.component';
 
 @Component({
   selector: 'app-blog',
   standalone: true,
-  imports: [],
+  imports: [SliderComponent, SidebarComponent],
   templateUrl: './blog.component.html',
   styleUrl: './blog.component.css'
 })

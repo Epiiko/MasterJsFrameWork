@@ -13,7 +13,7 @@ export const routes: Routes = [
     {path: 'blog', component: BlogComponent},
     {path: 'formulario', component: FormularioComponent},
     {path: 'pagina', component: PaginaComponent},
-    {path: 'pagina/:nombre', component: PaginaComponent},
+    {path: 'pagina/:nombre/:apellido', component: PaginaComponent},
     {path: 'peliculas', component: PeliculasComponent},
     //ruta de error siempre la ultima
     {path: '**', component: ErrorComponent}

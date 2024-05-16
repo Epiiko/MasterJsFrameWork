@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { SliderComponent } from '../slider/slider.component';
 
 @Component({
   selector: 'app-formulario',
   standalone: true,
-  imports: [],
+  imports: [SidebarComponent, SliderComponent],
   templateUrl: './formulario.component.html',
   styleUrl: './formulario.component.css'
 })

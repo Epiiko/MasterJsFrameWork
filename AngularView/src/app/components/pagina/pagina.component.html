@@ -1,3 +1,17 @@
-<h1 class="subheader">{{ title }}</h1>
-<h2 *ngIf="nombre">El nombre del user es {{ nombre }}</h2>
+<app-slider [nombre]="'Pagina de pruebas'"></app-slider>
+<div class="center">
+  <section id="content">
+    <h1 class="subheader">{{ title }}</h1>
+    <div *ngIf="nombre && apellido; then siParams; else noParams"></div>
+  </section>
+  <app-sidebar></app-sidebar>
+</div>
+<div class="clearfix"></div>
+<ng-template #noParams>
+  <h2>No hay parametros perro</h2>
+</ng-template>
+<ng-template #siParams>
+  <h2>El nombre es {{ nombre }}</h2>
+  <h2>El apellido es {{ apellido }}</h2>
+</ng-template>
 <button (click)="redireccion()">REDI</button>
