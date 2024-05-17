@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ArticlesComponent } from '../articles/articles.component';
+import { Article } from '../../models/article';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,5 +10,4 @@ import { Component } from '@angular/core';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-
 }
