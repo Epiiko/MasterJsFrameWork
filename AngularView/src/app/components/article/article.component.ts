@@ -6,11 +6,11 @@ import { Article } from '../../models/article';
 import { ArticleService } from '../../services/article.service';
 import { SliderComponent } from '../slider/slider.component';
 import { SidebarComponent } from '../sidebar/sidebar.component';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-article',
   standalone: true,
-  imports: [NgIf, CommonModule, SliderComponent, SidebarComponent],
+  imports: [NgIf, CommonModule, SliderComponent, SidebarComponent, RouterLink],
   templateUrl: './article.component.html',
   styleUrl: './article.component.css',
 })

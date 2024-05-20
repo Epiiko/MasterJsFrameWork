@@ -1,0 +1,14 @@
+<app-slider [nombre]="'Buscador: '+ this.serach" [size]="'small'"></app-slider>
+<div class="center">
+  <section id="content">
+    <h1 class="subheader">Articulos encontrados</h1>
+    <div id="articles">
+      <!-- listado articulos -->
+      <app-articles [articles]="articles"></app-articles>
+      <!-- añadir + articulos con js -->
+    </div>
+</section>
+  <app-sidebar></app-sidebar>
+</div>
+<div class="clearfix"></div>
+

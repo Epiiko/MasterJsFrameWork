@@ -25,6 +25,25 @@ export class ArticleService {
     return this._http.get(this.url + articles);
   }
   getArticle(articleId: any):Observable<any>{
-    return this._http.get(this.url + 'article/' + articleId)
+    return this._http.get(this.url + 'article/' + articleId);
+  }
+  search(searchString:string):Observable<any>{
+    return this._http.get(this.url + 'search/' + searchString);
+  }
+  create(article:any):Observable<any>{
+    //pasamos el articulo a un string y lo guardamos en params
+    let params = JSON.stringify(article);
+    //indicamos el tipo de datos que va a recibir el objeto
+    let headers = new HttpHeaders().set('Content-Type', 'application/json'); 
+    return this._http.post(this.url + 'save', params , {headers: headers})
+  }
+  update(id:any, article:any):Observable<any>{
+    let params = JSON.stringify(Article);
+    let headers= new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.put(this.url+ "article/" +id,  params, {headers:headers} )
+  }
+  delete(id:any):Observable<any>{
+    let headers= new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.delete(this.url+ "delete/" + id, {headers:headers});
   }
 }

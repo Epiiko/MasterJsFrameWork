@@ -1,26 +1,30 @@
-<app-slider [nombre]="'Blog'" [size]="'small'"></app-slider>
 <div class="center">
   <section id="content">
     <h1 class="subheader">Nombre de Articulo</h1>
     <div id="articles">
-      <article
-        class="article-item"
-        id="article-template"
-      >
-        <div class="img-wrap" *ngIf="article">
+
+      <article class="article-item article-item-detail">
+        <div class="img-wrap">
           <img
-            src="{{ url + 'get-image/' + article.image }}"
-            alt="{{ article.image }}"
-            *ngIf="article.image"
-          />
-          <img
-            src="../../../assets/images/default.jpg"
-            alt="pfp"
-            *ngIf="!article.image"
-          />
+          *ngIf="article.image"
+          src="{{ url + 'get-image/' + article.image }}"
+          alt="{{ article.image}}"
+        />
+        <img 
+        *ngIf="!article.image"
+          src="../../../assets/images/default.jpg"
+          alt="pfp"
+        />
         </div>
-        <h2>{{ article.title }}</h2>
-        <span class="date">{{ article.date | date : "dd/MM/yyyy" }}</span>
+        <h1 class="subheader">{{article.title}}</h1>
+        <span class="date">{{article.date | date :'dd/MM/yyyy'}}</span>
+        <p>
+          {{article.content}}
+        </p>
+        <div class="buttons">
+          <a [routerLink]="['']" class="btn btn-warning">Editar</a>
+          <a [routerLink]="['/home']" class="btn btn-danger">Borrar</a>
+        </div>
         <div class="clearfix"></div>
       </article>
     </div>
