@@ -9,6 +9,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { ArticleComponent } from './components/article/article.component';
 import { SerachComponent } from './components/serach/serach.component';
 import { ArticleNewComponent } from './components/article-new/article-new.component';
+import { EditComponent } from './components/edit/edit.component';
 
 export const routes: Routes = [
     {path: '', component: HomeComponent},
@@ -21,6 +22,7 @@ export const routes: Routes = [
     {path: 'pagina/:nombre/:apellido', component: PaginaComponent},
     {path: 'peliculas', component: PeliculasComponent},
     {path: 'buscar/:search', component: SerachComponent},
+    {path: 'editar/:id', component: EditComponent},
     //ruta de error siempre la ultima
     {path: '**', component: ErrorComponent}
 ];

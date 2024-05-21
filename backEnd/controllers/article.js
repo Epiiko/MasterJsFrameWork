@@ -1,9 +1,10 @@
 "use strict";
 const validator = require("validator");
 const Article = require("../models/article");
-const { param } = require("../app");
-var fs = require('fs');
-var path = require('path');
+const { param, search } = require("../app");
+var fs = require("fs");
+var path = require("path");
+const { log } = require("console");
 const controller = {
   datosCurso: (req, res) => {
     return res.status(200).send({
@@ -21,6 +22,7 @@ const controller = {
     try {
       // Recoger los parámetros por POST
       const params = req.body;
+      console.log(params);
 
       // Validar datos
       const validate_title = !validator.isEmpty(params.title);
@@ -233,7 +235,8 @@ const controller = {
     let id = req.params.id;
     console.log(id);
     try {
-      let articuloBorrado = await Article.findOneAndDelete({ _id: id });
+      let articuloBorrado = await Article.findOneAndDelete({ _id: id }, '',{new:true});
+      console.log(articuloBorrado);
       if (articuloBorrado) {
         res.status(200).send({
           status: "Success",
@@ -251,6 +254,43 @@ const controller = {
         status: "Error",
         msg: "Problemas al encontrar o actualizar el artículo",
       });
+    }
+  },
+  search: async function (req, res) {
+    try {
+      // Sacar el string a buscar
+      var searchString = req.params.search;
+
+      // Find or
+      Article.find({
+        $or: [
+          { title: { $regex: searchString, $options: "i" } },
+          { content: { $regex: searchString, $options: "i" } },
+        ],
+      })
+        .sort([["date", "descending"]])
+        .then(function (articles) {
+          if (!articles || articles.length <= 0) {
+            return res.status(404).send({
+              status: "error",
+              message: "No hay articulos que coincidan con tu busqueda !!!",
+            });
+          }
+
+          return res.status(200).send({
+            status: "success",
+            articles,
+          });
+        })
+        .catch(function (err) {
+          console.log("ERROR eres tonto");
+          return res.status(500).send({
+            status: "error",
+            message: "Error en la petición !!!",
+          });
+        });
+    } catch {
+      console.log("Hay problemas");
     }
   },
 };

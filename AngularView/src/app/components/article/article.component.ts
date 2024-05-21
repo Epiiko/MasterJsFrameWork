@@ -17,18 +17,23 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 export class ArticleComponent {
   public article!: Article;
   public url: string;
+  public id!: any;
+  public is_edit:boolean;
+ 
   constructor(
     private _srvArticle: ArticleService,
     private _route: ActivatedRoute,
     private _router: Router
   ) {
     this.url=Global.url
+    this.is_edit=true;
+   
   }
   ngOnInit(): void {
     this._route.params.subscribe((params) => {
-      let id = params['id'];
-      console.log(id);
-      this._srvArticle.getArticle(id).subscribe(
+      this.id = params['id'];
+      console.log(this.id);
+      this._srvArticle.getArticle(this.id).subscribe(
         (resp) => {
             this.article=resp.articuloSearched[0];
         },
@@ -38,5 +43,36 @@ export class ArticleComponent {
         }
       );
     });
+  }
+  delete(){
+    this._srvArticle.delete(this.id).subscribe(
+      respuesta=>{
+        console.log("ARTICULO BORRADO");
+        console.log(respuesta);
+        this._router.navigate(['/home']);
+      },
+      err=>{
+        console.log(err);
+        
+      }
+    )
+  }
+  onSubmit(){
+    this._srvArticle.create(this.article).subscribe(
+      res=>{
+        console.log(res);
+        
+        if(res.status=='success'){
+          this.article=res.article;  
+          res.status='succes';
+          this._router.navigate(['/blog']);
+        }
+      },
+      err=>{
+        console.log(err);
+        err.status= 'error'
+        
+      }
+    )
   }
 }
