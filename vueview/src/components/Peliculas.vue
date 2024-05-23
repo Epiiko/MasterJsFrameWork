@@ -1,0 +1,48 @@
+<template>
+  <section id="content">
+    <h2 class="subheader">Peliculas</h2>
+    <div id="articles" >
+      <!-- v-for="pelicula in peliculas" v-bind:key="pelicula" -->
+      <div v-for="pelicula in peliculas" v-bind:key="pelicula.titulo">
+
+        <Pelicula pelicula="pelicula"></Pelicula>
+      </div>
+      <!-- añadir + articulos con js -->
+    </div>
+  </section>
+</template>
+
+<script>
+import Pelicula from './Pelicula.vue';
+
+export default {
+  name: "PeliculasComponent",
+  components:{
+    Pelicula
+  },
+  data() {
+    return {
+      peliculas: [
+        {
+          titulo: "Batman Vs Superman",
+          image:
+            "https://images.ecestaticos.com/iPpZiNZ7UdxSu__vCjyamtKdk6E=/2x0:1279x718/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F578%2F59e%2F1c3%2F57859e1c30d7f9871400ceb3512cb9e7.jpg",
+          year: 2012
+        },
+        {
+          titulo: "Harry Potter",
+          image:
+            "https://www.fanisetas.com/blog/storage/2019/02/maxresdefault.jpg",
+            year: 2018
+        },
+        {
+          titulo: "Matrix",
+          image:
+            "https://estaticos-cdn.prensaiberica.es/clip/3678c50c-e36a-4ce1-a8ea-bf7e6d655093_16-9-discover-aspect-ratio_default_0.jpg",
+            year: 2008
+          },
+      ],
+    };
+  },
+};
+</script>
