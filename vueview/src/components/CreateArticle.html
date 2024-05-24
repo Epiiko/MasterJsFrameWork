@@ -1,0 +1,24 @@
+<SliderComponent titulo="Crear Articulo"></SliderComponent>
+<div class="center">
+    <div class="center">
+        <section id="content">
+            <h2 class="subheader">{{ this.titulo }}</h2>
+            <form action="" class="mid-form" @submit.prevent="save()">
+                <div class="form-group">
+                    <label for="titulo">Titulo: </label>
+                    <input type="text" name="titulo" v-model="article.title" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">Content: </label>
+                    <textarea name="content" v-model="article.content" required ></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Imagen: </label>
+                    <input type="file" name="imagen" id="" >
+                </div>
+                <div class="clearfix"></div>
+                <input type="submit" value="Enviar" class="btn btn-success" @click="mostrarUsuario">
+            </form>
+        </section>
+    </div>
+</div>
